@@ -9,15 +9,11 @@
       type="image/png"
       href="https://i.ibb.co/B2zzbvz5/Untitled.png"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+
     <style>
       :root {
-        /* Linktree-like palette from the screenshot */
+        /* Fluent 2 Design Tokens with custom color theme */
+        /* Custom warm color palette */
         --bg: #f5e6b8; /* warm pale yellow */
         --card: #f1b13b; /* mango/orange for buttons */
         --card-hover: #e5a633; /* slightly darker on hover */
@@ -25,252 +21,505 @@
         --muted: #2f2f2f; /* darker muted */
         --sheet: #fff7dd; /* light sheet */
         --border: #efcf86; /* soft border around buttons */
-        --radius: 16px;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+        /* Fluent 2 Design System tokens */
+        --fluent-corner-radius-small: 4px;
+        --fluent-corner-radius-medium: 8px;
+        --fluent-corner-radius-large: 12px;
+        --fluent-corner-radius-circular: 9999px;
+
+        /* Fluent 2 Typography Scale */
+        --fluent-font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        --fluent-font-size-100: 12px;
+        --fluent-font-size-200: 14px;
+        --fluent-font-size-300: 16px;
+        --fluent-font-size-400: 18px;
+        --fluent-font-size-500: 20px;
+        --fluent-font-size-600: 24px;
+        --fluent-font-size-700: 28px;
+        --fluent-font-size-800: 32px;
+
+        --fluent-font-weight-regular: 400;
+        --fluent-font-weight-medium: 500;
+        --fluent-font-weight-semibold: 600;
+
+        --fluent-line-height-100: 16px;
+        --fluent-line-height-200: 20px;
+        --fluent-line-height-300: 24px;
+        --fluent-line-height-400: 26px;
+        --fluent-line-height-500: 28px;
+        --fluent-line-height-600: 32px;
+        --fluent-line-height-700: 36px;
+        --fluent-line-height-800: 40px;
+
+        /* Fluent 2 Spacing Scale */
+        --fluent-spacingHorizontalXXS: 2px;
+        --fluent-spacingHorizontalXS: 4px;
+        --fluent-spacingHorizontalSNudge: 6px;
+        --fluent-spacingHorizontalS: 8px;
+        --fluent-spacingHorizontalMNudge: 10px;
+        --fluent-spacingHorizontalM: 12px;
+        --fluent-spacingHorizontalL: 16px;
+        --fluent-spacingHorizontalXL: 20px;
+        --fluent-spacingHorizontalXXL: 24px;
+        --fluent-spacingHorizontalXXXL: 32px;
+
+        --fluent-spacingVerticalXXS: 2px;
+        --fluent-spacingVerticalXS: 4px;
+        --fluent-spacingVerticalSNudge: 6px;
+        --fluent-spacingVerticalS: 8px;
+        --fluent-spacingVerticalMNudge: 10px;
+        --fluent-spacingVerticalM: 12px;
+        --fluent-spacingVerticalL: 16px;
+        --fluent-spacingVerticalXL: 20px;
+        --fluent-spacingVerticalXXL: 24px;
+        --fluent-spacingVerticalXXXL: 32px;
+
+        /* Fluent 2 Shadow tokens */
+        --fluent-shadow-2: 0px 0.3px 0.9px rgba(0, 0, 0, 0.12),
+          0px 1.6px 3.6px rgba(0, 0, 0, 0.16);
+        --fluent-shadow-4: 0px 0.4px 1.2px rgba(0, 0, 0, 0.12),
+          0px 2.4px 7.2px rgba(0, 0, 0, 0.16);
+        --fluent-shadow-8: 0px 0.8px 2.4px rgba(0, 0, 0, 0.12),
+          0px 4.8px 14.4px rgba(0, 0, 0, 0.16);
+        --fluent-shadow-16: 0px 1.6px 4.8px rgba(0, 0, 0, 0.12),
+          0px 9.6px 28.8px rgba(0, 0, 0, 0.16);
+        --fluent-shadow-64: 0px 6.4px 19.2px rgba(0, 0, 0, 0.12),
+          0px 38.4px 115.2px rgba(0, 0, 0, 0.16);
+
+        /* Motion tokens */
+        --fluent-duration-ultraFast: 50ms;
+        --fluent-duration-faster: 100ms;
+        --fluent-duration-fast: 150ms;
+        --fluent-duration-normal: 200ms;
+        --fluent-duration-gentle: 250ms;
+        --fluent-duration-slow: 300ms;
+        --fluent-duration-slower: 400ms;
+
+        --fluent-curve-accelerateMax: cubic-bezier(0.9, 0.1, 1, 0.2);
+        --fluent-curve-accelerateMid: cubic-bezier(0.7, 0, 1, 0.5);
+        --fluent-curve-accelerateMin: cubic-bezier(0.8, 0, 0.78, 1);
+        --fluent-curve-decelerateMax: cubic-bezier(0.1, 0.9, 0.2, 1);
+        --fluent-curve-decelerateMid: cubic-bezier(0, 0.5, 0.5, 1);
+        --fluent-curve-decelerateMin: cubic-bezier(0.33, 0, 0.1, 1);
+        --fluent-curve-easyEaseMax: cubic-bezier(0.8, 0, 0.2, 1);
+        --fluent-curve-easyEase: cubic-bezier(0.33, 0, 0.67, 1);
+        --fluent-curve-linear: cubic-bezier(0, 0, 1, 1);
       }
+
       * {
         box-sizing: border-box;
       }
+
       html,
       body {
         height: 100%;
-      }
-      body {
         margin: 0;
+        padding: 0;
+      }
+
+      body {
         background: var(--bg);
         color: var(--text);
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
-          "Helvetica Neue", Arial;
-        line-height: 1.5;
-        display: grid;
-        place-items: start center;
-        padding: 24px 16px 120px;
+        font-family: var(--fluent-font-family);
+        font-size: var(--fluent-font-size-300);
+        line-height: var(--fluent-line-height-300);
+        font-weight: var(--fluent-font-weight-regular);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: var(--fluent-spacingVerticalXXXL)
+          var(--fluent-spacingHorizontalL);
+        min-height: 100vh;
       }
+
       .container {
         width: 100%;
-        max-width: 520px;
+        max-width: 480px;
       }
+
+      /* Profile Section - Fluent 2 Card */
       .profile {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 14px;
-        margin-bottom: 12px;
+        gap: var(--fluent-spacingVerticalL);
+        margin-bottom: var(--fluent-spacingVerticalXXXL);
         text-align: center;
       }
+
       .logo {
-        width: 120px;
-        height: 120px;
-        border-radius: 999px;
+        width: 96px;
+        height: 96px;
+        border-radius: var(--fluent-corner-radius-circular);
         object-fit: cover;
-        box-shadow: var(--shadow);
+        box-shadow: var(--fluent-shadow-8);
         background: white;
       }
+
       h1 {
         margin: 0;
-        font-size: 28px;
-        font-weight: 700;
-      }
-      p.subtitle {
-        margin: 0;
-        color: #333;
-        font-size: 16px;
-        max-width: 36ch;
+        font-size: var(--fluent-font-size-700);
+        line-height: var(--fluent-line-height-700);
+        font-weight: var(--fluent-font-weight-semibold);
+        color: var(--text);
       }
 
-      .links {
-        display: grid;
-        gap: 16px;
-        margin-top: 24px;
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: var(--fluent-font-size-300);
+        line-height: var(--fluent-line-height-300);
+        font-weight: var(--fluent-font-weight-regular);
+        max-width: 320px;
       }
+
+      /* Payment Buttons - Fluent 2 Button Components */
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--fluent-spacingVerticalS);
+        margin-bottom: var(--fluent-spacingVerticalXXXL);
+      }
+
       .btn {
         appearance: none;
-        border: 0;
+        border: none;
         cursor: pointer;
         width: 100%;
         background: var(--card);
         color: var(--text);
-        padding: 24px 16px;
-        border-radius: 20px;
+        padding: var(--fluent-spacingVerticalL)
+          var(--fluent-spacingHorizontalXXL);
+        border-radius: var(--fluent-corner-radius-large);
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        transition: transform 0.08s ease, background 0.2s ease,
-          box-shadow 0.2s ease;
-        box-shadow: var(--shadow);
-        font-weight: 600;
-        letter-spacing: 0.2px;
-        border: 4px solid var(--border);
+        font-family: var(--fluent-font-family);
+        font-size: var(--fluent-font-size-300);
+        font-weight: var(--fluent-font-weight-medium);
+        line-height: var(--fluent-line-height-300);
+        box-shadow: var(--fluent-shadow-4);
+        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        min-height: 52px;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
       }
+
       .btn:hover {
         background: var(--card-hover);
+        box-shadow: var(--fluent-shadow-8);
         transform: translateY(-1px);
       }
+
       .btn:active {
         transform: translateY(0);
+        box-shadow: var(--fluent-shadow-2);
       }
+
+      .btn:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 2px;
+      }
+
       .btn .logo-square {
         position: absolute;
-        left: 16px;
+        left: var(--fluent-spacingHorizontalL);
         top: 50%;
         transform: translateY(-50%);
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
+        width: 28px;
+        height: 28px;
+        border-radius: var(--fluent-corner-radius-small);
         object-fit: contain;
       }
+
       .btn .text {
         flex: 1;
         text-align: center;
+        font-weight: var(--fluent-font-weight-medium);
       }
 
-      /* Social row */
+      /* Social Icons - Fluent 2 Icon Buttons */
       .social {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 18px;
-        margin-top: 32px;
-      }
-      .icon-btn {
-        width: 52px;
-        height: 52px;
-        border-radius: 16px;
-        border: 4px solid var(--border);
-        background: transparent;
-        display: inline-grid;
-        place-items: center;
-        cursor: pointer;
-        box-shadow: var(--shadow);
-      }
-      .icon-btn:hover {
-        background: rgba(0, 0, 0, 0.03);
-      }
-      .icon-img {
-        width: 26px;
-        height: 26px;
+        gap: var(--fluent-spacingHorizontalS);
+        margin-bottom: var(--fluent-spacingVerticalXXL);
       }
 
-      /* Overlay */
+      .icon-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--fluent-corner-radius-medium);
+        border: none;
+        background: transparent;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+
+      .icon-btn:hover {
+        background: rgba(0, 0, 0, 0.04);
+        transform: scale(1.1);
+      }
+
+      .icon-btn:active {
+        transform: scale(0.95);
+      }
+
+      .icon-btn:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 2px;
+      }
+
+      .icon-img {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Footer - Fluent 2 Typography */
+      .footer {
+        text-align: center;
+        margin-top: var(--fluent-spacingVerticalL);
+        color: var(--muted);
+        font-size: var(--fluent-font-size-100);
+        line-height: var(--fluent-line-height-100);
+      }
+
+      .footer a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: var(--fluent-font-weight-medium);
+        border-bottom: 1px dotted currentColor;
+        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+      }
+
+      .footer a:hover {
+        border-bottom-style: solid;
+      }
+
+      /* Overlay - Fluent 2 Layer */
       .overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.32);
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.25s ease;
+        transition: opacity var(--fluent-duration-normal)
+          var(--fluent-curve-easyEase);
+        backdrop-filter: blur(4px);
       }
+
       .overlay.show {
         opacity: 1;
         pointer-events: auto;
       }
 
-      /* Bottom Sheet */
+      /* Bottom Sheet - Fluent 2 Dialog */
       .sheet {
         position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
         background: var(--sheet);
-        border-top-left-radius: 18px;
-        border-top-right-radius: 18px;
-        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+        border-top-left-radius: var(--fluent-corner-radius-large);
+        border-top-right-radius: var(--fluent-corner-radius-large);
+        box-shadow: var(--fluent-shadow-64);
         transform: translateY(100%);
-        transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+        transition: transform var(--fluent-duration-slower)
+          var(--fluent-curve-decelerateMid);
         will-change: transform;
-        padding: 14px 16px 22px;
+        padding: var(--fluent-spacingVerticalXXL)
+          var(--fluent-spacingHorizontalXXL);
         max-height: 75vh;
         overflow: auto;
-        border-top: 1px solid #e9d9a4;
-        color: #1a1a1a;
+        color: var(--text);
+        border-top: 1px solid var(--border);
       }
+
       .sheet.show {
         transform: translateY(0);
       }
+
       .drag {
-        width: 48px;
-        height: 5px;
-        background: #d7c48a;
-        border-radius: 999px;
-        margin: 6px auto 12px;
+        width: 32px;
+        height: 4px;
+        background: var(--border);
+        border-radius: var(--fluent-corner-radius-circular);
+        margin: 0 auto var(--fluent-spacingVerticalL);
       }
+
       .sheet h3 {
-        margin: 0 0 4px;
-        font-size: 18px;
+        margin: 0 0 var(--fluent-spacingVerticalS);
+        font-size: var(--fluent-font-size-500);
+        line-height: var(--fluent-line-height-500);
+        font-weight: var(--fluent-font-weight-semibold);
+        color: var(--text);
       }
+
       .sheet p {
-        margin: 0 0 14px;
-        color: #444;
-        font-size: 13px;
+        margin: 0 0 var(--fluent-spacingVerticalXXL);
+        color: var(--muted);
+        font-size: var(--fluent-font-size-200);
+        line-height: var(--fluent-line-height-200);
+        font-weight: var(--fluent-font-weight-regular);
+      }
+
+      /* Form Fields - Fluent 2 Input Components */
+      .row {
+        display: flex;
+        flex-direction: column;
+        gap: var(--fluent-spacingVerticalM);
+        margin-bottom: var(--fluent-spacingVerticalL);
       }
 
       .field {
-        background: #fff;
-        border: 1px solid #e7d7a4;
-        border-radius: 12px;
-        padding: 10px 12px;
-        display: grid;
-        grid-template-columns: 1fr auto;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--fluent-corner-radius-medium);
+        padding: var(--fluent-spacingVerticalM) var(--fluent-spacingHorizontalL);
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 10px;
+        gap: var(--fluent-spacingHorizontalL);
+        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        box-shadow: var(--fluent-shadow-2);
       }
+
+      .field:hover {
+        border-color: var(--card-hover);
+        box-shadow: var(--fluent-shadow-4);
+      }
+
       .label {
-        font-size: 12px;
-        color: #6b6b6b;
-        margin-bottom: 2px;
+        font-size: var(--fluent-font-size-100);
+        line-height: var(--fluent-line-height-100);
+        color: var(--muted);
+        margin-bottom: var(--fluent-spacingVerticalXXS);
+        font-weight: var(--fluent-font-weight-medium);
       }
+
       .value {
-        font-weight: 700;
-        font-size: 16px;
+        font-weight: var(--fluent-font-weight-semibold);
+        font-size: var(--fluent-font-size-300);
+        line-height: var(--fluent-line-height-300);
         overflow-wrap: anywhere;
+        flex: 1;
+        color: var(--text);
       }
+
+      /* Copy Button - Fluent 2 Button */
       .copy {
-        background: #fff6d6;
-        border: 1px solid #efd9a4;
-        color: #1a1a1a;
-        border-radius: 10px;
-        padding: 8px 10px;
+        background: var(--card);
+        border: none;
+        color: var(--text);
+        border-radius: var(--fluent-corner-radius-medium);
+        padding: var(--fluent-spacingVerticalS) var(--fluent-spacingHorizontalM);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-      }
-      .copy:hover {
-        background: #ffeeb7;
-      }
-      .row {
-        display: grid;
-        gap: 10px;
-        margin: 12px 0 6px;
+        gap: var(--fluent-spacingHorizontalS);
+        font-family: var(--fluent-font-family);
+        font-size: var(--fluent-font-size-100);
+        line-height: var(--fluent-line-height-100);
+        font-weight: var(--fluent-font-weight-medium);
+        box-shadow: var(--fluent-shadow-2);
+        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        outline: 2px solid transparent;
+        outline-offset: 2px;
       }
 
+      .copy:hover {
+        background: var(--card-hover);
+        box-shadow: var(--fluent-shadow-4);
+        transform: translateY(-1px);
+      }
+
+      .copy:active {
+        transform: translateY(0);
+        box-shadow: var(--fluent-shadow-2);
+      }
+
+      .copy:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 2px;
+      }
+
+      /* Close Button - Fluent 2 Icon Button */
       .close {
         position: absolute;
-        right: 12px;
-        top: 8px;
+        right: var(--fluent-spacingHorizontalL);
+        top: var(--fluent-spacingVerticalL);
         background: transparent;
-        border: 0;
-        color: #6b6b6b;
+        border: none;
+        color: var(--muted);
         cursor: pointer;
-        padding: 8px;
-        border-radius: 8px;
-      }
-      .close:hover {
-        background: rgba(0, 0, 0, 0.05);
-        color: #1a1a1a;
+        padding: var(--fluent-spacingVerticalS);
+        border-radius: var(--fluent-corner-radius-medium);
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--fluent-font-size-300);
+        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        outline: 2px solid transparent;
+        outline-offset: 2px;
       }
 
-      .footer {
-        text-align: center;
-        margin-top: 18px;
-        color: #333;
-        font-size: 12px;
+      .close:hover {
+        background: rgba(0, 0, 0, 0.04);
+        color: var(--text);
+        transform: scale(1.1);
       }
-      a.inline {
-        color: inherit;
-        opacity: 0.9;
-        text-decoration: underline dotted;
+
+      .close:active {
+        transform: scale(0.95);
+      }
+
+      .close:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 2px;
+      }
+
+      /* Responsive Design - Fluent 2 Breakpoints */
+      @media (max-width: 480px) {
+        body {
+          padding: var(--fluent-spacingVerticalXXL)
+            var(--fluent-spacingHorizontalM);
+        }
+
+        .container {
+          max-width: 100%;
+        }
+
+        .sheet {
+          padding: var(--fluent-spacingVerticalXXL)
+            var(--fluent-spacingHorizontalL);
+          max-height: 85vh;
+        }
+
+        .btn .logo-square {
+          width: 24px;
+          height: 24px;
+        }
+
+        .logo {
+          width: 80px;
+          height: 80px;
+        }
+
+        h1 {
+          font-size: var(--fluent-font-size-600);
+          line-height: var(--fluent-line-height-600);
+        }
       }
     </style>
   </head>
@@ -587,7 +836,7 @@
       };
 
       // Constants
-      const COPY_FEEDBACK_DURATION = 750;
+      const COPY_FEEDBACK_DURATION = 1200; // Fluent 2 recommended duration for success feedback
       const REFERENCE_TEXT = "Ülemiste city day";
 
       // Reusable copy icon SVG
