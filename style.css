@@ -215,13 +215,13 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--cupertino-spacing-s);
+  gap: var(--cupertino-spacing-xxs);
   margin-bottom: var(--cupertino-spacing-xxl);
 }
 
 .icon-btn {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: var(--cupertino-radius-medium);
   border: none;
   background: transparent;
@@ -252,8 +252,8 @@ h1 {
 }
 
 .icon-img {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
 }
 
 /* Footer - Cupertino Typography */
