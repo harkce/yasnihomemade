@@ -518,6 +518,37 @@
             </button>
           </div>
         </div>
+
+        <div id="tag-field" style="display: none">
+          <div class="label" id="tag-label">Tag</div>
+          <div class="field">
+            <div class="value" id="recipient-tag">@tag</div>
+            <button
+              class="copy"
+              data-copy="recipient-tag"
+              aria-label="Copy tag"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+              </svg>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -533,11 +564,15 @@
           label: "Wise",
           name: "Yasni Tya Insani",
           iban: "BE91967476698176",
+          tagLabel: "Wisetag",
+          tag: "@yasnityai",
         },
         revolut: {
           label: "Revolut",
           name: "Yasni Tya Insani",
           iban: "LT743250095189241828",
+          tagLabel: "Revtag",
+          tag: "@yasni95",
         },
         lhv: {
           label: "LHV",
@@ -558,6 +593,9 @@
       const nameEl = document.getElementById("recipient-name");
       const ibanEl = document.getElementById("recipient-iban");
       const referenceEl = document.getElementById("recipient-reference");
+      const tagFieldEl = document.getElementById("tag-field");
+      const tagLabelEl = document.getElementById("tag-label");
+      const tagEl = document.getElementById("recipient-tag");
       const titleEl = document.getElementById("sheet-title");
 
       function openSheet(kind) {
@@ -566,6 +604,16 @@
         nameEl.textContent = d.name;
         ibanEl.textContent = d.iban;
         referenceEl.textContent = "Ülemiste city day";
+
+        // Show/hide tag field based on whether the payment method has tag info
+        if (d.tag && d.tagLabel) {
+          tagFieldEl.style.display = "block";
+          tagLabelEl.textContent = d.tagLabel;
+          tagEl.textContent = d.tag;
+        } else {
+          tagFieldEl.style.display = "none";
+        }
+
         titleEl.textContent = d.label + " – Details";
 
         sheet.classList.add("show");
