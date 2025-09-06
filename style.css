@@ -173,6 +173,7 @@ h1 {
   outline: 2px solid transparent;
   outline-offset: 2px;
   -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
 }
 
 .btn:hover {
