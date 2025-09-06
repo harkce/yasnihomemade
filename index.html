@@ -7,7 +7,7 @@
     <link
       rel="icon"
       type="image/png"
-      href="https://ugc.production.linktr.ee/7d4cf4f7-415e-4dcb-a1fc-bc65381470e3_DALL-E-2024-05-28-00.40.15---A-logo-for-Yasnis-Homemade--featuring-bright-and-appetizing-colors.-The.webp?io=true&size=avatar-v3_0"
+      href="https://i.ibb.co/B2zzbvz5/Untitled.png"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -64,6 +64,7 @@
         border-radius: 999px;
         object-fit: cover;
         box-shadow: var(--shadow);
+        background: white;
       }
       h1 {
         margin: 0;
@@ -244,12 +245,6 @@
         margin: 12px 0 6px;
       }
 
-      .note {
-        font-size: 12px;
-        color: #555;
-        margin-top: 10px;
-      }
-
       .close {
         position: absolute;
         right: 12px;
@@ -264,27 +259,6 @@
       .close:hover {
         background: rgba(0, 0, 0, 0.05);
         color: #1a1a1a;
-      }
-
-      .toast {
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%) translateY(20px);
-        bottom: 18px;
-        background: #111827;
-        color: #fff;
-        border: 1px solid #263041;
-        padding: 10px 14px;
-        border-radius: 10px;
-        box-shadow: var(--shadow);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-        font-size: 14px;
-      }
-      .toast.show {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
       }
 
       .footer {
@@ -305,7 +279,7 @@
       <section class="profile" aria-label="Profile">
         <img
           class="logo"
-          src="https://ugc.production.linktr.ee/7d4cf4f7-415e-4dcb-a1fc-bc65381470e3_DALL-E-2024-05-28-00.40.15---A-logo-for-Yasnis-Homemade--featuring-bright-and-appetizing-colors.-The.webp?io=true&size=avatar-v3_0"
+          src="https://i.ibb.co/B2zzbvz5/Untitled.png"
           alt="Yasni's Homemade logo"
         />
         <h1>Payment Options</h1>
@@ -545,13 +519,7 @@
           </div>
         </div>
       </div>
-
-      <div class="note" id="provider-note">
-        Select a method above to view specific notes.
-      </div>
     </section>
-
-    <div class="toast" id="toast" role="status" aria-live="polite">Copied!</div>
 
     <script>
       // 🔧 EDIT THESE VALUES with your real details
@@ -565,37 +533,31 @@
           label: "Wise",
           name: "Yasni Tya Insani",
           iban: "BE91967476698176",
-          note: "Transferring via <strong>Wise</strong> is usually instant during business hours.",
         },
         revolut: {
           label: "Revolut",
           name: "Yasni Tya Insani",
           iban: "LT743250095189241828",
-          note: "<strong>Revolut</strong> SEPA transfers typically arrive next business day.",
         },
         lhv: {
           label: "LHV",
           name: "Muhammad Habib Fikri Sundayana",
           iban: "EE177700771008621121",
-          note: "Transfers via <strong>LHV</strong> are processed quickly within the Estonian banking system.",
         },
         swedbank: {
           label: "Swedbank",
           name: "Muhammad Habib Fikri Sundayana",
           iban: "EE842200221092040190",
-          note: "<strong>Swedbank</strong> transfers are typically processed within 1-2 business days.",
         },
       };
 
       const sheet = document.getElementById("payment-sheet");
       const overlay = document.getElementById("overlay");
       const closeBtn = document.getElementById("close-btn");
-      const toast = document.getElementById("toast");
 
       const nameEl = document.getElementById("recipient-name");
       const ibanEl = document.getElementById("recipient-iban");
       const referenceEl = document.getElementById("recipient-reference");
-      const noteEl = document.getElementById("provider-note");
       const titleEl = document.getElementById("sheet-title");
 
       function openSheet(kind) {
@@ -604,7 +566,6 @@
         nameEl.textContent = d.name;
         ibanEl.textContent = d.iban;
         referenceEl.textContent = "Ülemiste city day";
-        noteEl.innerHTML = d.note;
         titleEl.textContent = d.label + " – Details";
 
         sheet.classList.add("show");
@@ -629,13 +590,6 @@
           .forEach((btn) => btn.setAttribute("aria-expanded", "false"));
       }
 
-      function showToast(msg = "Copied!") {
-        toast.textContent = msg;
-        toast.classList.add("show");
-        clearTimeout(showToast._t);
-        showToast._t = setTimeout(() => toast.classList.remove("show"), 1400);
-      }
-
       // Payment button events
       document.querySelectorAll("[data-target]").forEach((btn) => {
         btn.addEventListener("click", () => openSheet(btn.dataset.target));
@@ -654,9 +608,19 @@
           const el = document.getElementById(id);
           if (!el) return;
           const value = el.textContent.trim();
+
+          // Get the span element inside the button
+          const spanEl = btn.querySelector("span");
+          const originalText = spanEl.textContent;
+
           try {
             await navigator.clipboard.writeText(value);
-            showToast("Copied to clipboard");
+            spanEl.textContent = "Copied!";
+
+            // Reset back to original text after 2 seconds
+            setTimeout(() => {
+              spanEl.textContent = originalText;
+            }, 2000);
           } catch (err) {
             const range = document.createRange();
             range.selectNode(el);
@@ -665,9 +629,19 @@
             sel.addRange(range);
             try {
               document.execCommand("copy");
-              showToast("Copied to clipboard");
+              spanEl.textContent = "Copied!";
+
+              // Reset back to original text after 2 seconds
+              setTimeout(() => {
+                spanEl.textContent = originalText;
+              }, 2000);
             } catch (e) {
-              showToast("Copy failed");
+              spanEl.textContent = "Failed";
+
+              // Reset back to original text after 2 seconds
+              setTimeout(() => {
+                spanEl.textContent = originalText;
+              }, 2000);
             }
             sel.removeAllRanges();
           }
