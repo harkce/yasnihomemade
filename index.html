@@ -12,99 +12,78 @@
 
     <style>
       :root {
-        /* Fluent 2 Design Tokens with custom color theme */
+        /* Cupertino Design Tokens with custom color theme */
         /* Custom warm color palette */
         --bg: #f5e6b8; /* warm pale yellow */
         --card: #f1b13b; /* mango/orange for buttons */
         --card-hover: #e5a633; /* slightly darker on hover */
-        --text: #111111; /* near-black text */
-        --muted: #2f2f2f; /* darker muted */
+        --text: #000000; /* true black for iOS style */
+        --muted: #8e8e93; /* iOS secondary label color */
         --sheet: #fff7dd; /* light sheet */
         --border: #efcf86; /* soft border around buttons */
 
-        /* Fluent 2 Design System tokens */
-        --fluent-corner-radius-small: 4px;
-        --fluent-corner-radius-medium: 8px;
-        --fluent-corner-radius-large: 12px;
-        --fluent-corner-radius-circular: 9999px;
+        /* Cupertino Corner Radius */
+        --cupertino-radius-small: 6px;
+        --cupertino-radius-medium: 10px;
+        --cupertino-radius-large: 16px;
+        --cupertino-radius-xl: 20px;
+        --cupertino-radius-circular: 50%;
 
-        /* Fluent 2 Typography Scale */
-        --fluent-font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        --fluent-font-size-100: 12px;
-        --fluent-font-size-200: 14px;
-        --fluent-font-size-300: 16px;
-        --fluent-font-size-400: 18px;
-        --fluent-font-size-500: 20px;
-        --fluent-font-size-600: 24px;
-        --fluent-font-size-700: 28px;
-        --fluent-font-size-800: 32px;
+        /* Cupertino Typography Scale - San Francisco inspired */
+        --cupertino-font-family: -apple-system, BlinkMacSystemFont,
+          "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+        --cupertino-font-size-caption2: 11px;
+        --cupertino-font-size-caption: 12px;
+        --cupertino-font-size-footnote: 13px;
+        --cupertino-font-size-subhead: 15px;
+        --cupertino-font-size-callout: 16px;
+        --cupertino-font-size-body: 17px;
+        --cupertino-font-size-headline: 17px;
+        --cupertino-font-size-title3: 20px;
+        --cupertino-font-size-title2: 22px;
+        --cupertino-font-size-title1: 28px;
+        --cupertino-font-size-large-title: 34px;
 
-        --fluent-font-weight-regular: 400;
-        --fluent-font-weight-medium: 500;
-        --fluent-font-weight-semibold: 600;
+        --cupertino-font-weight-regular: 400;
+        --cupertino-font-weight-medium: 500;
+        --cupertino-font-weight-semibold: 600;
+        --cupertino-font-weight-bold: 700;
 
-        --fluent-line-height-100: 16px;
-        --fluent-line-height-200: 20px;
-        --fluent-line-height-300: 24px;
-        --fluent-line-height-400: 26px;
-        --fluent-line-height-500: 28px;
-        --fluent-line-height-600: 32px;
-        --fluent-line-height-700: 36px;
-        --fluent-line-height-800: 40px;
+        --cupertino-line-height-tight: 1.2;
+        --cupertino-line-height-normal: 1.4;
+        --cupertino-line-height-relaxed: 1.6;
 
-        /* Fluent 2 Spacing Scale */
-        --fluent-spacingHorizontalXXS: 2px;
-        --fluent-spacingHorizontalXS: 4px;
-        --fluent-spacingHorizontalSNudge: 6px;
-        --fluent-spacingHorizontalS: 8px;
-        --fluent-spacingHorizontalMNudge: 10px;
-        --fluent-spacingHorizontalM: 12px;
-        --fluent-spacingHorizontalL: 16px;
-        --fluent-spacingHorizontalXL: 20px;
-        --fluent-spacingHorizontalXXL: 24px;
-        --fluent-spacingHorizontalXXXL: 32px;
+        /* Cupertino Spacing Scale - iOS 8pt grid */
+        --cupertino-spacing-xs: 4px;
+        --cupertino-spacing-s: 8px;
+        --cupertino-spacing-m: 12px;
+        --cupertino-spacing-l: 16px;
+        --cupertino-spacing-xl: 20px;
+        --cupertino-spacing-xxl: 24px;
+        --cupertino-spacing-xxxl: 32px;
+        --cupertino-spacing-huge: 40px;
 
-        --fluent-spacingVerticalXXS: 2px;
-        --fluent-spacingVerticalXS: 4px;
-        --fluent-spacingVerticalSNudge: 6px;
-        --fluent-spacingVerticalS: 8px;
-        --fluent-spacingVerticalMNudge: 10px;
-        --fluent-spacingVerticalM: 12px;
-        --fluent-spacingVerticalL: 16px;
-        --fluent-spacingVerticalXL: 20px;
-        --fluent-spacingVerticalXXL: 24px;
-        --fluent-spacingVerticalXXXL: 32px;
+        /* Cupertino Shadow tokens - subtle iOS-style shadows */
+        --cupertino-shadow-small: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        --cupertino-shadow-medium: 0px 4px 6px rgba(0, 0, 0, 0.07),
+          0px 2px 4px rgba(0, 0, 0, 0.06);
+        --cupertino-shadow-large: 0px 10px 15px rgba(0, 0, 0, 0.1),
+          0px 4px 6px rgba(0, 0, 0, 0.05);
+        --cupertino-shadow-xl: 0px 20px 25px rgba(0, 0, 0, 0.1),
+          0px 10px 10px rgba(0, 0, 0, 0.04);
 
-        /* Fluent 2 Shadow tokens */
-        --fluent-shadow-2: 0px 0.3px 0.9px rgba(0, 0, 0, 0.12),
-          0px 1.6px 3.6px rgba(0, 0, 0, 0.16);
-        --fluent-shadow-4: 0px 0.4px 1.2px rgba(0, 0, 0, 0.12),
-          0px 2.4px 7.2px rgba(0, 0, 0, 0.16);
-        --fluent-shadow-8: 0px 0.8px 2.4px rgba(0, 0, 0, 0.12),
-          0px 4.8px 14.4px rgba(0, 0, 0, 0.16);
-        --fluent-shadow-16: 0px 1.6px 4.8px rgba(0, 0, 0, 0.12),
-          0px 9.6px 28.8px rgba(0, 0, 0, 0.16);
-        --fluent-shadow-64: 0px 6.4px 19.2px rgba(0, 0, 0, 0.12),
-          0px 38.4px 115.2px rgba(0, 0, 0, 0.16);
+        /* Cupertino Motion tokens - iOS-style animations */
+        --cupertino-duration-instant: 0ms;
+        --cupertino-duration-immediate: 100ms;
+        --cupertino-duration-quick: 200ms;
+        --cupertino-duration-moderate: 300ms;
+        --cupertino-duration-deliberate: 400ms;
+        --cupertino-duration-slow: 500ms;
 
-        /* Motion tokens */
-        --fluent-duration-ultraFast: 50ms;
-        --fluent-duration-faster: 100ms;
-        --fluent-duration-fast: 150ms;
-        --fluent-duration-normal: 200ms;
-        --fluent-duration-gentle: 250ms;
-        --fluent-duration-slow: 300ms;
-        --fluent-duration-slower: 400ms;
-
-        --fluent-curve-accelerateMax: cubic-bezier(0.9, 0.1, 1, 0.2);
-        --fluent-curve-accelerateMid: cubic-bezier(0.7, 0, 1, 0.5);
-        --fluent-curve-accelerateMin: cubic-bezier(0.8, 0, 0.78, 1);
-        --fluent-curve-decelerateMax: cubic-bezier(0.1, 0.9, 0.2, 1);
-        --fluent-curve-decelerateMid: cubic-bezier(0, 0.5, 0.5, 1);
-        --fluent-curve-decelerateMin: cubic-bezier(0.33, 0, 0.1, 1);
-        --fluent-curve-easyEaseMax: cubic-bezier(0.8, 0, 0.2, 1);
-        --fluent-curve-easyEase: cubic-bezier(0.33, 0, 0.67, 1);
-        --fluent-curve-linear: cubic-bezier(0, 0, 1, 1);
+        --cupertino-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+        --cupertino-ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+        --cupertino-ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+        --cupertino-ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
       }
 
       * {
@@ -121,16 +100,17 @@
       body {
         background: var(--bg);
         color: var(--text);
-        font-family: var(--fluent-font-family);
-        font-size: var(--fluent-font-size-300);
-        line-height: var(--fluent-line-height-300);
-        font-weight: var(--fluent-font-weight-regular);
+        font-family: var(--cupertino-font-family);
+        font-size: var(--cupertino-font-size-body);
+        line-height: var(--cupertino-line-height-normal);
+        font-weight: var(--cupertino-font-weight-regular);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: var(--fluent-spacingVerticalXXXL)
-          var(--fluent-spacingHorizontalL);
+        padding: var(--cupertino-spacing-xxxl) var(--cupertino-spacing-l);
         min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       .container {
@@ -138,48 +118,50 @@
         max-width: 480px;
       }
 
-      /* Profile Section - Fluent 2 Card */
+      /* Profile Section - Cupertino Card */
       .profile {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: var(--fluent-spacingVerticalL);
-        margin-bottom: var(--fluent-spacingVerticalXXXL);
+        gap: var(--cupertino-spacing-l);
+        margin-bottom: var(--cupertino-spacing-xxxl);
         text-align: center;
       }
 
       .logo {
-        width: 96px;
-        height: 96px;
-        border-radius: var(--fluent-corner-radius-circular);
+        width: 120px;
+        height: 120px;
+        border-radius: var(--cupertino-radius-xl);
         object-fit: cover;
-        box-shadow: var(--fluent-shadow-8);
+        box-shadow: var(--cupertino-shadow-medium);
         background: white;
       }
 
       h1 {
         margin: 0;
-        font-size: var(--fluent-font-size-700);
-        line-height: var(--fluent-line-height-700);
-        font-weight: var(--fluent-font-weight-semibold);
+        font-size: var(--cupertino-font-size-title1);
+        line-height: var(--cupertino-line-height-tight);
+        font-weight: var(--cupertino-font-weight-bold);
         color: var(--text);
+        letter-spacing: -0.5px;
       }
 
       .subtitle {
         margin: 0;
-        color: var(--muted);
-        font-size: var(--fluent-font-size-300);
-        line-height: var(--fluent-line-height-300);
-        font-weight: var(--fluent-font-weight-regular);
+        color: #2c2c2e; /* darker color for better contrast */
+        font-size: var(--cupertino-font-size-callout);
+        line-height: var(--cupertino-line-height-normal);
+        font-weight: var(--cupertino-font-weight-medium);
         max-width: 320px;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8); /* subtle white shadow for better readability */
       }
 
-      /* Payment Buttons - Fluent 2 Button Components */
+      /* Payment Buttons - Cupertino Button Components */
       .links {
         display: flex;
         flex-direction: column;
-        gap: var(--fluent-spacingVerticalS);
-        margin-bottom: var(--fluent-spacingVerticalXXXL);
+        gap: var(--cupertino-spacing-s);
+        margin-bottom: var(--cupertino-spacing-xxxl);
       }
 
       .btn {
@@ -189,33 +171,35 @@
         width: 100%;
         background: var(--card);
         color: var(--text);
-        padding: var(--fluent-spacingVerticalL)
-          var(--fluent-spacingHorizontalXXL);
-        border-radius: var(--fluent-corner-radius-large);
+        padding: var(--cupertino-spacing-l) var(--cupertino-spacing-xxl);
+        border-radius: var(--cupertino-radius-large);
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        font-family: var(--fluent-font-family);
-        font-size: var(--fluent-font-size-300);
-        font-weight: var(--fluent-font-weight-medium);
-        line-height: var(--fluent-line-height-300);
-        box-shadow: var(--fluent-shadow-4);
-        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        font-family: var(--cupertino-font-family);
+        font-size: var(--cupertino-font-size-body);
+        font-weight: var(--cupertino-font-weight-medium);
+        line-height: var(--cupertino-line-height-normal);
+        box-shadow: var(--cupertino-shadow-small);
+        transition: all var(--cupertino-duration-quick)
+          var(--cupertino-ease-standard);
         min-height: 52px;
         outline: 2px solid transparent;
         outline-offset: 2px;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .btn:hover {
         background: var(--card-hover);
-        box-shadow: var(--fluent-shadow-8);
-        transform: translateY(-1px);
+        box-shadow: var(--cupertino-shadow-medium);
+        transform: translateY(-1px) scale(1.02);
       }
 
       .btn:active {
-        transform: translateY(0);
-        box-shadow: var(--fluent-shadow-2);
+        transform: translateY(0) scale(0.98);
+        box-shadow: var(--cupertino-shadow-small);
+        transition-duration: var(--cupertino-duration-immediate);
       }
 
       .btn:focus-visible {
@@ -225,34 +209,35 @@
 
       .btn .logo-square {
         position: absolute;
-        left: var(--fluent-spacingHorizontalL);
+        left: var(--cupertino-spacing-l);
         top: 50%;
         transform: translateY(-50%);
-        width: 28px;
-        height: 28px;
-        border-radius: var(--fluent-corner-radius-small);
+        width: 32px;
+        height: 32px;
+        border-radius: var(--cupertino-radius-small);
         object-fit: contain;
       }
 
       .btn .text {
         flex: 1;
         text-align: center;
-        font-weight: var(--fluent-font-weight-medium);
+        font-weight: var(--cupertino-font-weight-medium);
+        letter-spacing: -0.2px;
       }
 
-      /* Social Icons - Fluent 2 Icon Buttons */
+      /* Social Icons - Cupertino Icon Buttons */
       .social {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: var(--fluent-spacingHorizontalS);
-        margin-bottom: var(--fluent-spacingVerticalXXL);
+        gap: var(--cupertino-spacing-s);
+        margin-bottom: var(--cupertino-spacing-xxl);
       }
 
       .icon-btn {
         width: 40px;
         height: 40px;
-        border-radius: var(--fluent-corner-radius-medium);
+        border-radius: var(--cupertino-radius-medium);
         border: none;
         background: transparent;
         display: inline-flex;
@@ -260,18 +245,21 @@
         justify-content: center;
         cursor: pointer;
         color: var(--muted);
-        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        transition: all var(--cupertino-duration-quick)
+          var(--cupertino-ease-standard);
         outline: 2px solid transparent;
         outline-offset: 2px;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .icon-btn:hover {
-        background: rgba(0, 0, 0, 0.04);
+        background: rgba(0, 0, 0, 0.05);
         transform: scale(1.1);
       }
 
       .icon-btn:active {
-        transform: scale(0.95);
+        transform: scale(0.9);
+        transition-duration: var(--cupertino-duration-immediate);
       }
 
       .icon-btn:focus-visible {
@@ -284,37 +272,39 @@
         height: 20px;
       }
 
-      /* Footer - Fluent 2 Typography */
+      /* Footer - Cupertino Typography */
       .footer {
         text-align: center;
-        margin-top: var(--fluent-spacingVerticalL);
+        margin-top: var(--cupertino-spacing-l);
         color: var(--muted);
-        font-size: var(--fluent-font-size-100);
-        line-height: var(--fluent-line-height-100);
+        font-size: var(--cupertino-font-size-footnote);
+        line-height: var(--cupertino-line-height-normal);
       }
 
       .footer a {
         color: var(--text);
         text-decoration: none;
-        font-weight: var(--fluent-font-weight-medium);
+        font-weight: var(--cupertino-font-weight-medium);
         border-bottom: 1px dotted currentColor;
-        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        transition: all var(--cupertino-duration-quick)
+          var(--cupertino-ease-standard);
       }
 
       .footer a:hover {
         border-bottom-style: solid;
       }
 
-      /* Overlay - Fluent 2 Layer */
+      /* Overlay - Cupertino Layer */
       .overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.32);
+        background: rgba(0, 0, 0, 0.4);
         opacity: 0;
         pointer-events: none;
-        transition: opacity var(--fluent-duration-normal)
-          var(--fluent-curve-easyEase);
-        backdrop-filter: blur(4px);
+        transition: opacity var(--cupertino-duration-moderate)
+          var(--cupertino-ease-standard);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
       }
 
       .overlay.show {
@@ -322,22 +312,21 @@
         pointer-events: auto;
       }
 
-      /* Bottom Sheet - Fluent 2 Dialog */
+      /* Bottom Sheet - Cupertino Dialog */
       .sheet {
         position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
         background: var(--sheet);
-        border-top-left-radius: var(--fluent-corner-radius-large);
-        border-top-right-radius: var(--fluent-corner-radius-large);
-        box-shadow: var(--fluent-shadow-64);
+        border-top-left-radius: var(--cupertino-radius-large);
+        border-top-right-radius: var(--cupertino-radius-large);
+        box-shadow: var(--cupertino-shadow-xl);
         transform: translateY(100%);
-        transition: transform var(--fluent-duration-slower)
-          var(--fluent-curve-decelerateMid);
+        transition: transform var(--cupertino-duration-deliberate)
+          var(--cupertino-ease-decelerate);
         will-change: transform;
-        padding: var(--fluent-spacingVerticalXXL)
-          var(--fluent-spacingHorizontalXXL);
+        padding: var(--cupertino-spacing-xxl) var(--cupertino-spacing-xxl);
         max-height: 75vh;
         overflow: auto;
         color: var(--text);
@@ -349,102 +338,111 @@
       }
 
       .drag {
-        width: 32px;
-        height: 4px;
+        width: 36px;
+        height: 5px;
         background: var(--border);
-        border-radius: var(--fluent-corner-radius-circular);
-        margin: 0 auto var(--fluent-spacingVerticalL);
+        border-radius: var(--cupertino-radius-small);
+        margin: 0 auto var(--cupertino-spacing-l);
+        opacity: 0.6;
       }
 
       .sheet h3 {
-        margin: 0 0 var(--fluent-spacingVerticalS);
-        font-size: var(--fluent-font-size-500);
-        line-height: var(--fluent-line-height-500);
-        font-weight: var(--fluent-font-weight-semibold);
+        margin: 0 0 var(--cupertino-spacing-s);
+        font-size: var(--cupertino-font-size-title3);
+        line-height: var(--cupertino-line-height-tight);
+        font-weight: var(--cupertino-font-weight-semibold);
         color: var(--text);
+        letter-spacing: -0.3px;
       }
 
       .sheet p {
-        margin: 0 0 var(--fluent-spacingVerticalXXL);
+        margin: 0 0 var(--cupertino-spacing-xxxl);
         color: var(--muted);
-        font-size: var(--fluent-font-size-200);
-        line-height: var(--fluent-line-height-200);
-        font-weight: var(--fluent-font-weight-regular);
+        font-size: var(--cupertino-font-size-subhead);
+        line-height: var(--cupertino-line-height-normal);
+        font-weight: var(--cupertino-font-weight-regular);
       }
 
-      /* Form Fields - Fluent 2 Input Components */
+      /* Form Fields - Cupertino Input Components */
       .row {
         display: flex;
         flex-direction: column;
-        gap: var(--fluent-spacingVerticalM);
-        margin-bottom: var(--fluent-spacingVerticalL);
+        gap: var(--cupertino-spacing-m);
+        margin-bottom: var(--cupertino-spacing-l);
       }
 
       .field {
         background: white;
         border: 1px solid var(--border);
-        border-radius: var(--fluent-corner-radius-medium);
-        padding: var(--fluent-spacingVerticalM) var(--fluent-spacingHorizontalL);
+        border-radius: var(--cupertino-radius-medium);
+        padding: var(--cupertino-spacing-m) var(--cupertino-spacing-l);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: var(--fluent-spacingHorizontalL);
-        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
-        box-shadow: var(--fluent-shadow-2);
+        gap: var(--cupertino-spacing-l);
+        transition: all var(--cupertino-duration-quick)
+          var(--cupertino-ease-standard);
+        box-shadow: var(--cupertino-shadow-small);
       }
 
       .field:hover {
         border-color: var(--card-hover);
-        box-shadow: var(--fluent-shadow-4);
+        box-shadow: var(--cupertino-shadow-medium);
       }
 
       .label {
-        font-size: var(--fluent-font-size-100);
-        line-height: var(--fluent-line-height-100);
+        font-size: var(--cupertino-font-size-caption);
+        line-height: var(--cupertino-line-height-normal);
         color: var(--muted);
-        margin-bottom: var(--fluent-spacingVerticalXXS);
-        font-weight: var(--fluent-font-weight-medium);
+        margin-bottom: var(--cupertino-spacing-xs);
+        font-weight: var(--cupertino-font-weight-medium);
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
       }
 
       .value {
-        font-weight: var(--fluent-font-weight-semibold);
-        font-size: var(--fluent-font-size-300);
-        line-height: var(--fluent-line-height-300);
+        font-weight: var(--cupertino-font-weight-semibold);
+        font-size: var(--cupertino-font-size-callout);
+        line-height: var(--cupertino-line-height-normal);
         overflow-wrap: anywhere;
         flex: 1;
         color: var(--text);
       }
 
-      /* Copy Button - Fluent 2 Button */
+      /* Copy Button - Cupertino Button */
       .copy {
         background: var(--card);
         border: none;
         color: var(--text);
-        border-radius: var(--fluent-corner-radius-medium);
-        padding: var(--fluent-spacingVerticalS) var(--fluent-spacingHorizontalM);
+        border-radius: var(--cupertino-radius-medium);
+        padding: var(--cupertino-spacing-s) var(--cupertino-spacing-m);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: var(--fluent-spacingHorizontalS);
-        font-family: var(--fluent-font-family);
-        font-size: var(--fluent-font-size-100);
-        line-height: var(--fluent-line-height-100);
-        font-weight: var(--fluent-font-weight-medium);
-        box-shadow: var(--fluent-shadow-2);
-        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        gap: var(--cupertino-spacing-s);
+        font-family: var(--cupertino-font-family);
+        font-size: var(--cupertino-font-size-caption);
+        line-height: var(--cupertino-line-height-normal);
+        font-weight: var(--cupertino-font-weight-semibold);
+        box-shadow: var(--cupertino-shadow-small);
+        transition: all var(--cupertino-duration-quick)
+          var(--cupertino-ease-standard);
         outline: 2px solid transparent;
         outline-offset: 2px;
+        -webkit-tap-highlight-color: transparent;
+        letter-spacing: -0.1px;
       }
 
       .copy:hover {
         background: var(--card-hover);
-        box-shadow: var(--fluent-shadow-4);
-        transform: translateY(-1px);
+        box-shadow: var(--cupertino-shadow-medium);
+        transform: translateY(-1px) scale(1.02);
       }
 
       .copy:active {
-        transform: translateY(0);
-        box-shadow: var(--fluent-shadow-2);
+        transform: translateY(0) scale(0.98);
+        box-shadow: var(--cupertino-shadow-small);
+        transition-duration: var(--cupertino-duration-immediate);
       }
 
       .copy:focus-visible {
@@ -452,36 +450,39 @@
         outline-offset: 2px;
       }
 
-      /* Close Button - Fluent 2 Icon Button */
+      /* Close Button - Cupertino Icon Button */
       .close {
         position: absolute;
-        right: var(--fluent-spacingHorizontalL);
-        top: var(--fluent-spacingVerticalL);
+        right: var(--cupertino-spacing-l);
+        top: var(--cupertino-spacing-l);
         background: transparent;
         border: none;
         color: var(--muted);
         cursor: pointer;
-        padding: var(--fluent-spacingVerticalS);
-        border-radius: var(--fluent-corner-radius-medium);
+        padding: var(--cupertino-spacing-s);
+        border-radius: var(--cupertino-radius-medium);
         width: 32px;
         height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: var(--fluent-font-size-300);
-        transition: all var(--fluent-duration-fast) var(--fluent-curve-easyEase);
+        font-size: var(--cupertino-font-size-body);
+        transition: all var(--cupertino-duration-quick)
+          var(--cupertino-ease-standard);
         outline: 2px solid transparent;
         outline-offset: 2px;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .close:hover {
-        background: rgba(0, 0, 0, 0.04);
+        background: rgba(0, 0, 0, 0.05);
         color: var(--text);
         transform: scale(1.1);
       }
 
       .close:active {
-        transform: scale(0.95);
+        transform: scale(0.9);
+        transition-duration: var(--cupertino-duration-immediate);
       }
 
       .close:focus-visible {
@@ -489,11 +490,10 @@
         outline-offset: 2px;
       }
 
-      /* Responsive Design - Fluent 2 Breakpoints */
+      /* Responsive Design - Cupertino Breakpoints */
       @media (max-width: 480px) {
         body {
-          padding: var(--fluent-spacingVerticalXXL)
-            var(--fluent-spacingHorizontalM);
+          padding: var(--cupertino-spacing-xxl) var(--cupertino-spacing-m);
         }
 
         .container {
@@ -501,24 +501,23 @@
         }
 
         .sheet {
-          padding: var(--fluent-spacingVerticalXXL)
-            var(--fluent-spacingHorizontalL);
+          padding: var(--cupertino-spacing-xxl) var(--cupertino-spacing-l);
           max-height: 85vh;
         }
 
         .btn .logo-square {
-          width: 24px;
-          height: 24px;
+          width: 32px;
+          height: 32px;
         }
 
         .logo {
-          width: 80px;
-          height: 80px;
+          width: 100px;
+          height: 100px;
         }
 
         h1 {
-          font-size: var(--fluent-font-size-600);
-          line-height: var(--fluent-line-height-600);
+          font-size: var(--cupertino-font-size-title2);
+          line-height: var(--cupertino-line-height-tight);
         }
       }
     </style>
@@ -836,7 +835,7 @@
       };
 
       // Constants
-      const COPY_FEEDBACK_DURATION = 1200; // Fluent 2 recommended duration for success feedback
+      const COPY_FEEDBACK_DURATION = 1200; // Cupertino recommended duration for success feedback
       const REFERENCE_TEXT = "Ülemiste city day";
 
       // Reusable copy icon SVG
