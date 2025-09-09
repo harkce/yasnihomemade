@@ -1,0 +1,59 @@
+/* Pattern Background Styles */
+:root {
+  /* Grid cell size and icon size */
+  --cell: 100px; /* each grid square */
+  --icon: 92px; /* icon max dimension */
+  --gap: 0px; /* extra spacing between cells if you want */
+}
+
+/* Pattern layer sits behind everything */
+.pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* behind content */
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #f5e6b8; /* warm pale yellow background */
+}
+
+/* A single tile (our 0/1 matrix) */
+.tile {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  grid-auto-rows: var(--cell);
+  gap: var(--gap);
+}
+
+.tile > .empty {
+  /* 0 cells: keep space but no image */
+  display: block;
+}
+
+.tile img {
+  width: var(--icon);
+  height: var(--icon);
+  display: block;
+  margin: auto; /* center inside the cell */
+  object-fit: contain;
+}
+
+/* When we replicate tiles, we place each clone absolutely */
+.tile-clone {
+  position: absolute;
+  will-change: transform;
+}
+
+/* Ensure content stays on top of pattern */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix z-index for overlay and sheet to appear above pattern and content */
+.overlay {
+  z-index: 1000;
+}
+
+.sheet {
+  z-index: 1001;
+}
