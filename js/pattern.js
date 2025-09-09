@@ -18,17 +18,26 @@ const MATRIX = [
   [1, 0, 1, 0, 1, 0],
 ];
 
+/** Detect the correct path to images based on current page location */
+const getImagePath = () => {
+  // Check if we're in a subfolder by looking at the current path
+  const path = window.location.pathname;
+  const isInSubfolder =
+    path.includes("/payment/") || path.includes("/pattern/");
+  return isInSubfolder ? "../images/" : "./images/";
+};
+
 /** Icons to use for the 1-cells (use your own file names/paths) */
 const ICONS = [
-  "./images/anise.svg",
-  "./images/cabbage.svg",
-  "./images/garlic.svg",
-  "./images/lemongrass.svg",
-  "./images/nut.svg",
-  "./images/onion.svg",
-  "./images/pepper.svg",
-  "./images/tomato.svg",
-];
+  "anise.svg",
+  "cabbage.svg",
+  "garlic.svg",
+  "lemongrass.svg",
+  "nut.svg",
+  "onion.svg",
+  "pepper.svg",
+  "tomato.svg",
+].map((filename) => getImagePath() + filename);
 
 /** Behavior flags */
 const randomizeIcons = false; // true = pick random icon for each 1-cell
