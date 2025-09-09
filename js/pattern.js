@@ -20,14 +20,14 @@ const MATRIX = [
 
 /** Icons to use for the 1-cells (use your own file names/paths) */
 const ICONS = [
-  "../images/anise.svg",
-  "../images/cabbage.svg",
-  "../images/garlic.svg",
-  "../images/lemongrass.svg",
-  "../images/nut.svg",
-  "../images/onion.svg",
-  "../images/pepper.svg",
-  "../images/tomato.svg",
+  "./images/anise.svg",
+  "./images/cabbage.svg",
+  "./images/garlic.svg",
+  "./images/lemongrass.svg",
+  "./images/nut.svg",
+  "./images/onion.svg",
+  "./images/pepper.svg",
+  "./images/tomato.svg",
 ];
 
 /** Behavior flags */
