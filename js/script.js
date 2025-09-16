@@ -33,7 +33,7 @@ const DATA = {
 
 // Constants
 const COPY_FEEDBACK_DURATION = 1200; // Cupertino recommended duration for success feedback
-const REFERENCE_TEXT = "Ülemiste city day";
+const REFERENCE_TEXT = "Food order";
 
 // Reusable copy icon SVG
 const COPY_ICON_SVG = `
